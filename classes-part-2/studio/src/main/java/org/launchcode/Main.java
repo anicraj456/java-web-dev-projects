@@ -12,5 +12,24 @@ public class Main {
         //System.out.println(item1.isNew());
         System.out.println(item3);
         // write your code here
+        Menu menu =new Menu();
+        menu.addItem(item1);
+        menu.addItem(item2);
+        menu.addItem(item3);
+        menu.addItem(item4);
+        menu.addItem(item5);
+        System.out.println(menu);
+        System.out.println(item1.equals(item2));
+        MenuItem item6 = new MenuItem("Jamun","sweet balls", 1.25, "dessert");
+        System.out.println(item5.equals(item6));
+
+        menu.removeItem(item3);
+        System.out.println(menu);
+
+        menu.addItem(item6);
+        System.out.println(menu);
+
+        menu.addItem(item1);
+        System.out.println(menu);
     }
 }

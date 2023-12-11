@@ -1,6 +1,7 @@
 package org.launchcode;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Objects;
 
 public class MenuItem {
     private String name;
@@ -64,6 +65,23 @@ public class MenuItem {
         String newText = isNew() ?  " -NEW!" : "";
         return name  + newText + "\n" + description  + "--$" + price ;
     }
+
+    @Override
+    public boolean equals(Object toBeCompared){
+        if(this == toBeCompared){
+            return true;
+        }
+        if(toBeCompared == null){
+            return false;
+        }
+        if(getClass() != toBeCompared.getClass()){
+            return false;
+        }
+        MenuItem otherItem =(MenuItem) toBeCompared;
+        return this.name.equals(otherItem.getName());
+
+    }
+
 
     boolean isNew(){
         LocalDate today = LocalDate.now();
