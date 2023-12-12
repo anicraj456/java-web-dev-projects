@@ -19,17 +19,17 @@ public class Main {
         menu.addItem(item4);
         menu.addItem(item5);
         System.out.println(menu);
-        System.out.println(item1.equals(item2));
+        System.out.println("comparing two item with diff value : " + item1.equals(item2));
         MenuItem item6 = new MenuItem("Jamun","sweet balls", 1.25, "dessert");
-        System.out.println(item5.equals(item6));
+        System.out.println("comparing two items with same value: " + item5.equals(item6));
 
         menu.removeItem(item3);
-        System.out.println(menu);
+        System.out.println("Menu after removing item: " + menu);
 
         menu.addItem(item6);
-        System.out.println(menu);
+        System.out.println("Menu after adding item: " + menu);
 
         menu.addItem(item1);
-        System.out.println(menu);
+        System.out.println("Menu after adding item: " + menu);
     }
 }

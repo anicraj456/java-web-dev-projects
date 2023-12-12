@@ -8,25 +8,11 @@ public class Menu {
     private LocalDate lastUpdated;
     private ArrayList<MenuItem> menuItems = new ArrayList<>();
 
-
-    /*public void setLastUpdated(Date lastUpdated) {
-        this.lastUpdated = lastUpdated;
-    }
-
-    public void setItems(ArrayList<MenuItem> items) {
-        this.menuItems = items;
-    }
-
-    public Date getLastUpdated() {
-        return lastUpdated;
-    }*/
-
     public ArrayList<MenuItem> getItems() {
         return menuItems;
     }
     @Override
     public String toString() {
-
         StringBuilder appetizers = new StringBuilder();
         for (MenuItem item : menuItems) {
             if (item.getCategory().equals("appetizer")) {
@@ -45,14 +31,14 @@ public class Menu {
                 desserts.append("\n").append(item.toString()).append("\n");
             }
         }
-       return "\n Ani menu\n" +
+       return "\n Ani menu \n" +
                "APPETIZERS" + appetizers.toString() + "\n" +
                "MAIN COURSE" + mainCourses.toString() + "\n" +
                "DESSERTS" + desserts.toString() + "\n";
     }
 
     void addItem(MenuItem newItem){
-        String message = "this item already added to the menu.";
+        String message = "This item already added to the menu.";
         if(menuItems.contains(newItem)){
             System.out.println(message);
             return;
@@ -65,7 +51,6 @@ public class Menu {
         menuItems.add(newItem);
         lastUpdated = LocalDate.now();
     }
-
     void removeItem(MenuItem item){
         menuItems.remove(item);
         lastUpdated = LocalDate.now();

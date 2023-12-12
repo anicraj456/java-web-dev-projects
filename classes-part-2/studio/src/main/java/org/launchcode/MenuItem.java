@@ -1,7 +1,6 @@
 package org.launchcode;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.Objects;
 
 public class MenuItem {
     private String name;
@@ -9,8 +8,6 @@ public class MenuItem {
     private String description;
     private String category;
     private LocalDate dateAdded;
-    //private boolean isNew;
-
 
     public MenuItem(String name, String description, double price, String category) {
         this.name = name;
@@ -18,7 +15,6 @@ public class MenuItem {
         this.description = description;
         this.category = category;
         this.dateAdded = LocalDate.now();
-        //this.isNew = true;
     }
 
     public String getName() {
@@ -59,54 +55,36 @@ public class MenuItem {
     public void setCategory(String category) {
         this.category = category;
     }
-
-    @Override
-    public String toString() {
-        String newText = isNew() ?  " -NEW!" : "";
-        return name  + newText + "\n" + description  + "--$" + price ;
-    }
-
-    @Override
-    public boolean equals(Object toBeCompared){
-        if(this == toBeCompared){
-            return true;
-        }
-        if(toBeCompared == null){
-            return false;
-        }
-        if(getClass() != toBeCompared.getClass()){
-            return false;
-        }
-        MenuItem otherItem =(MenuItem) toBeCompared;
-        return this.name.equals(otherItem.getName());
-
-    }
-
-
     boolean isNew(){
         LocalDate today = LocalDate.now();
         double daysBtw = getDateAdded().until(today, ChronoUnit.DAYS);
-        return daysBtw < 90;
+        return daysBtw < 60;
     }
+    @Override
+    public String toString() {
+        String newText = isNew() ? " -NEW!" : "";
+        return name + newText + "\n" + description + "--$" + price;
+    }
+    @Override
+    public boolean equals(Object toBeCompared) {
+        if (this == toBeCompared) {
+            return true;
+        }
+        if (toBeCompared == null) {
+            return false;
+        }
+        if (getClass() != toBeCompared.getClass()) {
+            return false;
+        }
 
+        MenuItem otherItem = (MenuItem) toBeCompared;
+        return this.name.equals(otherItem.getName());
+
+    }
 }
 
 
 
-    /*public void setPrice(double price) {
-        this.price = price;
-    }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public void setNew(boolean aNew) {
-        isNew = aNew;
-    }*/
 
 
