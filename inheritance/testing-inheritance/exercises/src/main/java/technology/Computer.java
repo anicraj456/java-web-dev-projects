@@ -1,8 +1,8 @@
 package technology;
 
 public class Computer extends AbstractEntity {
-    double storage;
-    double memory;
+    double storage = 100;
+    double memory = 200;
     boolean keyBoard;
 
     public Computer(double storage, double memory, boolean keyBoard, int id) {
@@ -29,10 +29,20 @@ public class Computer extends AbstractEntity {
     public void setKeyBoard(boolean keyBoard) {
         this.keyBoard = keyBoard;
     }
-    public void storage(double storedItemSize){
-        storage = storage + storedItemSize;
+
+    public static boolean storage(double x){
+        if (x < 100){
+            return true;
+        }else {
+            return false;
+        }
+
     }
-    public void memory(double memoryUSedToStore){
-        memory = memory + memoryUSedToStore;
+    public static boolean memory(double y){
+        if (y < 200){
+            return true;
+        }else {
+            return false;
+        }
     }
 }
