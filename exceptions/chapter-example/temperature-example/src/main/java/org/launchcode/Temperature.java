@@ -16,11 +16,10 @@ public class Temperature {
                 try {
                     throw new TemperatureException("That temperature is too low!");
                 } catch (TemperatureException e) {
-                    //e.printStackTrace();
+                    e.printStackTrace();
                 }
             }
+        fahrenheit = aFahrenheit;
         }
-
-        //fahrenheit = aFahrenheit;
     }
-}
+
