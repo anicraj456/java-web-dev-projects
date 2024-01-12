@@ -6,6 +6,15 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         // Test out your Divide() function!
+        Scanner input;
+        input = new Scanner(System.in);
+        System.out.println("Enter vale for x:");
+        int xValue =input.nextInt();
+        System.out.println("Enter vale for y:");
+        int yValue =input.nextInt();
+        input.close();
+
+        Divide(xValue,yValue);
 
         HashMap<String, String> studentFiles = new HashMap<>();
         studentFiles.put("Carl", "Program.java");
@@ -14,53 +23,45 @@ public class Main {
         studentFiles.put("Stefanie", "CoolProgram.java");
 
         // Test out your CheckFileExtension() function!
-        String  fileName;
-        Scanner input;
-
-        input = new Scanner(System.in);
-        System.out.println("Enter the file name:");
-        fileName= input.nextLine();
-        input.close();
-
-        //CheckFileExtension tempFile = new CheckFileExtension();
-        //tempFile.setCheckFileExtension(fileName);
+        System.out.println(CheckFileExtension(""));
     }
 
     public static int Divide(int x, int y) //throws RuntimeException
     // Write code here!
     {
+        int result;
         try {
             if (y == 0) {
                 throw new ArithmeticException("invalid_division");
             } else {
                 return x / y;
+                System.out.println("result :" + result);
             }
-        } catch (ArithmeticException invalid_division) {
-            System.out.println("invalid_division");
+        } catch (ArithmeticException e) {
+            e.printStackTrace();
         }
-        return x;
     }
-    public int CheckFileExtension(String fileName) {
+    public static int CheckFileExtension(String fileName)
+         {
 
         // Write code here!
+
         int points = 0;
-        if (fileName == "Program.java") {
-            return points = points + 1;
-        }else if (fileName == "MyCode.java") {
-            return points = points + 1;
-        } else if(fileName == "CoolProgram.java") {
-            return points = points + 1;
-        } else if (fileName == null) {
-            return points = points - 1;
-        } else if (fileName == ""){
-            return points = points - 1;
-        } else
-            try {
-                throw new FileException();
-            } catch (FileException e) {
+        try{
+            if (fileName.contains("Program.java") {
+                  points =1;
+            }else if (fileName != ".java") {
+                points = 0;
+            } else if (fileName.contains("")) {
+                points = -1;
+            } else if (fileName == ""){
+                return points = points - 1;
+            throw new NullPointerException("file should be .java");
+        }
+             catch (NullPointerException e) {
                 e.printStackTrace();
             }
-        return points = points + 0;
+        return points;
 
     }
 
